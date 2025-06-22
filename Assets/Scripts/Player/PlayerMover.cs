@@ -24,7 +24,7 @@ public class PlayerMover : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.W))
         {
             _rigidbody.velocity = new Vector2(_speed, _flyForce);
             transform.rotation = _maxRotation;

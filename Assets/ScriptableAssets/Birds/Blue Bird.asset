@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98d54fa7907d32d42882e6fc5ac11548, type: 3}
+  m_Name: Blue Bird
+  m_EditorClassIdentifier: 
+  _sprite: {fileID: 21300000, guid: ed9f9e3be121fd74eab291eeb91a774e, type: 3}
+  _projectile: {fileID: 11400000, guid: 2e34f1bcf09db82479cd38b1a1618dda, type: 2}
