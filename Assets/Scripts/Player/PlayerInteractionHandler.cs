@@ -1,15 +1,15 @@
 using System;
 using UnityEngine;
 
-public class PlayerCollisionHandler : MonoBehaviour
+public class PlayerInteractionHandler : MonoBehaviour
 {
-    public Action<IInteractable> CollisionDetected;
+    public Action<IInteractable> InteractionDetected;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.TryGetComponent(out IInteractable obj))
         {
-            CollisionDetected?.Invoke(obj);
+            InteractionDetected?.Invoke(obj);
         }
     }
 
@@ -17,7 +17,7 @@ public class PlayerCollisionHandler : MonoBehaviour
     {
         if (collision.TryGetComponent(out IInteractable obj))
         {
-            CollisionDetected?.Invoke(obj);
+            InteractionDetected?.Invoke(obj);
         }
     }
 }

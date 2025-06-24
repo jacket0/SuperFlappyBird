@@ -2,22 +2,24 @@ using UnityEngine;
 
 public class PlayerShooter : Shooter
 {
+    private float _currentFireTime;
+
     private void Awake()
     {
-        _projectilePool = new Pool<RegularProjectile>(_prefab);
+        _projectilePool = new Pool<Projectile>(_prefab);
     }
 
     private void Update()
     {
-        var hit = Physics2D.Raycast(transform.position, transform.right);
-        Debug.DrawRay(transform.position, transform.right, Color.red);
+        _currentFireTime += Time.deltaTime;
+    }
 
-        if (Input.GetKey(KeyCode.Space) && _currentFireTime >= _fireRate)
+    public void Fire()
+    {
+        if (_currentFireTime >= _fireRate)
         {
             Shoot(transform.position, transform.right);
             _currentFireTime = 0;
         }
-
-        _currentFireTime += Time.deltaTime;
     }
 }

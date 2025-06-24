@@ -9,7 +9,7 @@ public class EnemyShooter : Shooter
 
     private void Awake()
     {
-        _projectilePool = new Pool<RegularProjectile>(_prefab);
+        _projectilePool = new Pool<Projectile>(_prefab);
     }
 
     public void StartAttack(Vector3 position)

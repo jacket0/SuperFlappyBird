@@ -23,8 +23,8 @@ public class Pool<T> where T : Poolable
         return _pool.Get();
     }
 
-    public void ReleaseProjectile(T projectile)
+    public void Release(T obj)
     {
-        _pool.Release(projectile);
+        _pool.Release(obj);
     }
 }

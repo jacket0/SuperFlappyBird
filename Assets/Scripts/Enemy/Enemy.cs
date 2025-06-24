@@ -1,13 +1,17 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
 public class Enemy : Poolable, IInteractable
 {
-    [SerializeField] private Bird _bird;
+    [SerializeField] private BirdConfig _bird;
     [SerializeField] private Health _health;
     [SerializeField] private EnemyShooter _shooter;
 
     private SpriteRenderer _spriteRenderer;
+
+    public override event Action<Poolable> Destroyed;
+
     public EnemyShooter Shooter => _shooter;
 
     private void Awake()
@@ -19,7 +23,7 @@ public class Enemy : Poolable, IInteractable
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.TryGetComponent(out RegularProjectile projectile))
+        if (collision.TryGetComponent(out Projectile projectile))
         {
             _health.DecreaseValue(projectile.Damage);
             projectile.Reached();
@@ -30,5 +34,10 @@ public class Enemy : Poolable, IInteractable
     {
         _health.ValueRestored -= Destroing;
         Destroy(gameObject);
+    }
+
+    public override void Reached()
+    {
+        Destroyed?.Invoke(this);
     }
 }

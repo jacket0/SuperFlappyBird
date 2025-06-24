@@ -2,14 +2,13 @@ using UnityEngine;
 
 public abstract class Shooter : MonoBehaviour
 {
-    [SerializeField] protected RegularProjectile _prefab;
+    [SerializeField] protected Projectile _prefab;
     [SerializeField] protected Transform _transform;
     [SerializeField] protected float _speed;
     [SerializeField] protected float _fireRate = 1f;
     [SerializeField] protected bool _isLeftDirection;
 
-    protected Pool<RegularProjectile> _projectilePool;
-    protected float _currentFireTime;
+    protected Pool<Projectile> _projectilePool;
 
     protected void Shoot(Vector3 position, Vector3 direction)
     {
@@ -20,9 +19,9 @@ public abstract class Shooter : MonoBehaviour
         projectile.Launch(direction, _speed);
     }
 
-    protected void OnDestroyed(RegularProjectile projectile)
+    private void OnDestroyed(Poolable poolable)
     {
-        projectile.Destroyed -= OnDestroyed;
-        _projectilePool.ReleaseProjectile(projectile);
+        poolable.Destroyed -= OnDestroyed;
+        _projectilePool.Release(poolable as Projectile);
     }
 }

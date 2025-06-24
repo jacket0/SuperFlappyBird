@@ -146,7 +146,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8630794744072715079}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0124fa9fb81c2c4fba7e5d76ff7feb0, type: 3}
+  m_Script: {fileID: 11500000, guid: 2645dc0b80d871d4990f5a69290e2b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _projectile: {fileID: 11400000, guid: 2e34f1bcf09db82479cd38b1a1618dda, type: 2}

@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Projectile", menuName = "CreateProjectile", order = 52)]
-public class Projectile : ScriptableObject
+public class ProjectileConfig : ScriptableObject
 {
     [SerializeField] private float _damage;
     [SerializeField] private Sprite _sprite;

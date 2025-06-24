@@ -2,14 +2,14 @@ using System;
 using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer), typeof(Rigidbody2D))]
-public class RegularProjectile : Poolable, IInteractable
+public class Projectile : Poolable, IInteractable
 {
-    [SerializeField] Projectile _projectile;
+    [SerializeField] ProjectileConfig _projectile;
 
     private SpriteRenderer _spriteRenderer;
     private Rigidbody2D _rigidbody;
 
-    public event Action<RegularProjectile> Destroyed;
+    public override event Action<Poolable> Destroyed;
     public Sprite Sprite => _projectile.Sprite;
     public float Damage => _projectile.Damage;
 
@@ -20,7 +20,7 @@ public class RegularProjectile : Poolable, IInteractable
         _spriteRenderer.sprite = _projectile.Sprite;
     }
 
-    public void Reached()
+    public override void Reached()
     {
         Destroyed?.Invoke(this);
     }
